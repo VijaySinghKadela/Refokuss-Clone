@@ -27,7 +27,7 @@ const images = [
 const Maruees = () => {
   return (
     <div className="py-20 mt-32">
-      {images.map(item => <Marquee imagesurls={item} />)}
+      {images.map((item , index) => <Marquee key={index} imagesurls={item} />)}
       
     </div>
   );

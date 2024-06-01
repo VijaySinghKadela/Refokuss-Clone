@@ -5,8 +5,12 @@ import Navber from "./components/Navber"
 import Products from "./components/Products"
 import Stripes from "./components/Stripes"
 import Work from "./components/Work"
+import LocomotiveScroll from 'locomotive-scroll';
+
+
 
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
   return (
     <div className='w-full min-h-screen bg-zinc-900 font-["satoshi"] text-white'>
       
