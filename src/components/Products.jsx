@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import Product from "./Product";
+import { useState } from "react";
 
 const Products = () => {
   const product = [
@@ -17,7 +19,7 @@ const Products = () => {
       case: false,
     },
     {
-      title: "Layout Land",
+      title: "Layout",
       description:
         "An interactive learning game that can educate and entertain you on the basics of web layouts in Webflow.",
       live: true,
@@ -30,44 +32,33 @@ const Products = () => {
       live: true,
       case: false,
     },
-    {
-      title: "Maniv",
-      description:
-        "A global early-stage venture fund partnering with founders to advance cleaner, safer, and more sustainable movement of people and goods.",
-      live: true,
-      case: false,
-    },
-    {
-      title: "Singularity",
-      description:
-        "A new site for Singularity that supports their growth and showcases their true identity as industry innovators.",
-      live: true,
-      case: false,
-    },
-    {
-      title: "Like Magic",
-      description:
-        "We designed and developed a magical gaming experience made in Webflow to promote the translation service and their sponsorship of the 2022 Webflow Conference.",
-      live: true,
-      case: true,
-    },
-    {
-      title: "Silvr",
-      description:
-        "We teamed up with financing solutions provider Silvr to audit, refine and evolve their brand.",
-      live: true,
-      case: false,
-    },
-    
-    
     
   ];
+
+  const [pos, setPos] = useState(0);
+
+  const mover  = (val) => {
+    setPos(val*23) 
+
+  }
+
   return (
-    <div className="mt-32">
+    <div className="mt-32 relative">
       {product.map((val, index) => (
-        <Product val={val} key={index} />
+        <Product val={val} key={index} mover={mover} count={index} />
       ))}
-     
+      <div className="absolute top-0 h-full w-full pointer-events-none  ">
+        <motion.div
+          initial={{ y: pos, x: "-50%" }}
+          animate={{ y: pos + `rem` }}
+          className="window absolute w-[32rem] h-[23rem] bg-white left-[46%] -translate-x-[50%] overflow-hidden"
+        >
+          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-100 "></motion.div>
+          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-300 "></motion.div>
+          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-400 "></motion.div>
+          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-500 "></motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
