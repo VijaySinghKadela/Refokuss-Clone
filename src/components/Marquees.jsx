@@ -26,7 +26,7 @@ const images = [
 
 const Maruees = () => {
   return (
-    <div className="py-20 mt-32">
+    <div className="py-20 mt-32 w-full relative overflow-hidden">
       {images.map((item , index) => <Marquee key={index} imagesurls={item} />)}
       
     </div>

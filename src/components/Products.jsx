@@ -8,6 +8,7 @@ const Products = () => {
       title: "arqitel",
       description:
         "with a continous 3D animation, we showcase Aqitel approach and show how migration data tranoslates into real estate.",
+        src:"https://cdn.refokus.com/website/Arqitel/Arqitel%20project%20video%204_3.webm",
       live: true,
       case: false,
     },
@@ -15,6 +16,7 @@ const Products = () => {
       title: "Cula",
       description:
         "We immersed autselves in a 3D world we created to explain how Cula's platform collectsWe immersed ourselves in a 3D world we created to explain how Cula's platform collects data from carbon removal processes and converts them into carbon credit certificates.",
+        src:"https://cdn.refokus.com/website/Cula_promo_new_4_3.mp4",
       live: true,
       case: false,
     },
@@ -32,15 +34,13 @@ const Products = () => {
       live: true,
       case: false,
     },
-    
   ];
 
   const [pos, setPos] = useState(0);
 
-  const mover  = (val) => {
-    setPos(val*23) 
-
-  }
+  const mover = (val) => {
+    setPos(val * 23);
+  };
 
   return (
     <div className="mt-32 relative">
@@ -51,12 +51,29 @@ const Products = () => {
         <motion.div
           initial={{ y: pos, x: "-50%" }}
           animate={{ y: pos + `rem` }}
+          transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.6 }}
           className="window absolute w-[32rem] h-[23rem] bg-white left-[46%] -translate-x-[50%] overflow-hidden"
         >
-          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-100 "></motion.div>
-          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-300 "></motion.div>
-          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-400 "></motion.div>
-          <motion.div animate={{y: -pos+`rem`}} className="  w-full h-full bg-sky-500 "></motion.div>
+          <motion.div
+            animate={{ y: -pos + `rem` }}
+            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
+            className="  w-full h-full   "
+          ></motion.div>
+          <motion.div
+            animate={{ y: -pos + `rem` }}
+            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
+            className="  w-full h-full bg-sky-300 "
+          ></motion.div>
+          <motion.div
+            animate={{ y: -pos + `rem` }}
+            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
+            className="  w-full h-full bg-sky-400 "
+          ></motion.div>
+          <motion.div
+            animate={{ y: -pos + `rem` }}
+            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
+            className="  w-full h-full bg-sky-500 "
+          ></motion.div>
         </motion.div>
       </div>
     </div>
